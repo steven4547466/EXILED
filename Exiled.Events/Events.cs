@@ -89,11 +89,22 @@ namespace Exiled.Events
             Handlers.Server.RoundStarted += Handlers.Internal.Round.OnRoundStarted;
             Handlers.Player.ChangingRole += Handlers.Internal.Round.OnChangingRole;
             Handlers.Map.Generated += Handlers.Internal.MapGenerated.OnMapGenerated;
+            Handlers.Scp096.Swinging += Test;
 
             MapGeneration.SeedSynchronizer.OnMapGenerated += Handlers.Map.OnGenerated;
 
             ServerConsole.ReloadServerName();
             Scp096.MaxShield = Config.Scp096MaxShieldAmount;
+        }
+
+        /// <summary>
+        /// Docs.
+        /// </summary>
+        /// <param name="ev">e.</param>
+        public void Test(EventArgs.SwingingEventArgs ev)
+        {
+            Log.Info("Test");
+            ev.IsAllowed = false;
         }
 
         /// <inheritdoc/>

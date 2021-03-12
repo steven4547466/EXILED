@@ -53,6 +53,11 @@ namespace Exiled.Events.Handlers
         public static event CustomEventHandler<ChargingPlayerEventArgs> ChargingPlayer;
 
         /// <summary>
+        /// Invoked before SCP-096 swings at a target.
+        /// </summary>
+        public static event CustomEventHandler<SwingingEventArgs> Swinging;
+
+        /// <summary>
         /// Called before SCP-096 is enraged.
         /// </summary>
         /// <param name="ev">The <see cref="EnragingEventArgs"/> instance.</param>
@@ -93,5 +98,11 @@ namespace Exiled.Events.Handlers
         /// </summary>
         /// <param name="ev">The <see cref="ChargingPlayerEventArgs"/> instance.</param>
         public static void OnChargingPlayer(ChargingPlayerEventArgs ev) => ChargingPlayer.InvokeSafely(ev);
+
+        /// <summary>
+        /// Called before SCP-096 swings at a target.
+        /// </summary>
+        /// <param name="ev">The <see cref="SwingingEventArgs"/> instance.</param>
+        public static void OnSwinging(SwingingEventArgs ev) => Swinging.InvokeSafely(ev);
     }
 }
