@@ -306,6 +306,11 @@ namespace Exiled.Events.Handlers
         public static event CustomEventHandler<ChangingRadioPresetEventArgs> ChangingRadioPreset;
 
         /// <summary>
+        /// Invoked when a user starts or stops jumping.
+        /// </summary>
+        public static event CustomEventHandler<JumpedEventArgs> Jumped;
+
+        /// <summary>
         /// Called before pre-authenticating a player.
         /// </summary>
         /// <param name="ev">The <see cref="PreAuthenticatingEventArgs"/> instance.</param>
@@ -640,5 +645,11 @@ namespace Exiled.Events.Handlers
         /// </summary>
         /// <param name="ev">The <see cref="ChangingRadioPresetEventArgs"/> instance.</param>
         public static void OnChangingRadioPreset(ChangingRadioPresetEventArgs ev) => ChangingRadioPreset.InvokeSafely(ev);
+
+        /// <summary>
+        /// Called after a user starts or stops jumping.
+        /// </summary>
+        /// <param name="ev">The <see cref="JumpedEventArgs"/> instance.</param>
+        public static void OnJumped(JumpedEventArgs ev) => Jumped.InvokeSafely(ev);
     }
 }
